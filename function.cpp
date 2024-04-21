@@ -67,12 +67,6 @@ bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int leng
 void makeTable(bool *F[]) {
     for (int nRow = 0; nRow < n; nRow++) {
         for (int nCol = 0; nCol < n; nCol++) {
-            F[nRow][nCol] = false;
-        }
-    }
-
-    for (int nRow = 0; nRow < n; nRow++) {
-        for (int nCol = 0; nCol < n; nCol++) {
             if (!F[nRow][nCol]) {
                 cout << "|O| ";
                 cout << "---";

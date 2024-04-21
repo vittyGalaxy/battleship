@@ -45,6 +45,11 @@ int main() {
         return 0;
     }
     bool battleField [n][n];
+    for (int nRow = 0; nRow < n; nRow++) {
+        for (int nCol = 0; nCol < n; nCol++) {
+            battleField[nRow][nCol] = false;
+        }
+    }
     insertBattleShip(battleField, 1, 1, 4, horizontalRight);
     insertBattleShip(battleField, 6, 5, 3, horizontalLeft);
     insertBattleShip(battleField, 3, 4, 2, horizontalRight);
