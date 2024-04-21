@@ -8,9 +8,9 @@ bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode) 
         case horizontalRight:
             return insertBattleshipHorizontalRight(F, startX, startY, length);
         case verticalOn:
-            return insertBattleshipVerticalOn(F, startX, startY, length);
+            return insertBattleshipVerticalUp(F, startX, startY, length);
         case verticalBelow:
-            return insertBattleshipVerticalBelow(F, startX, startY, length);
+            return insertBattleshipVerticalDown(F, startX, startY, length);
         case horizontalLeft:
             return insertBattleshipHorizontalLeft(F, startX, startY, length);
         default:
@@ -19,34 +19,34 @@ bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode) 
     return false;
 }
 
-bool insertBattleshipVerticalOn(bool *F[], int startX, int startY, int length){
+bool insertBattleshipVerticalUp(bool *F[], int startX, int startY, int length){
     for (int row = 0; row < length; row++){
-        if (F[startX][startY - row]){
+        if (F[startX - row][startY]){
             return false;
         }else{
-            F [startX] [startY - row] = true;
+            F[startX - row][startY] = true;
         }
     }
     return true;
 }
 
 bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int length){
-    for (int row = 0; row < length; row++){
-        if (F[startX - row][startY]){
+    for (int col = 0; col < length; col++){
+        if (F[startX][startY - col]){
             return false;
         }else{
-            F [startX - row] [startY] = true;
+            F[startX][startY - col] = true;
         }
     }
     return true;
 }
 
-bool insertBattleshipVerticalBelow(bool *F[], int startX, int startY, int length){
+bool insertBattleshipVerticalDown(bool *F[], int startX, int startY, int length){
     for (int row = 0; row < length; row++){
-        if (F[startX][startY + row]){
+        if (F[startX + row][startY]){
             return false;
         }else{
-            F [startX] [startY + row] = true;
+            F [startX + row][startY] = true;
         }
     }
     return true;
@@ -54,11 +54,11 @@ bool insertBattleshipVerticalBelow(bool *F[], int startX, int startY, int length
 }
 
 bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int length){
-    for (int row = 0; row < length; row++){
-        if (F[startX + row][startY]){
+    for (int col = 0; col < length; col++){
+        if (F[startX][startY + col]){
             return false;
         }else{
-            F[startX + row] [startY] = true;
+            F[startX] [startY + col] = true;
         }
     }
     return true;
