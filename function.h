@@ -4,7 +4,6 @@
 
 
 const int n = 10;
-bool battleField [n][n];
 
 enum Mode {
     verticalBelow = 0,
@@ -13,17 +12,19 @@ enum Mode {
     horizontalRight = 3
 };
 
-bool insertBattleShip(bool F, int startX, int startY, int length, Mode mode);
+bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode);
 
-bool insertBattleshipVerticalOn(bool *F, int startX, int startY, int length);
+bool insertBattleshipVerticalOn(bool *F[], int startX, int startY, int length);
 
-bool insertBattleshipHorizontalRight(bool *F, int startX, int startY, int length);
+bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int length);
 
-bool insertBattleshipVerticalBelow(bool *F, int startX, int startY, int length);
+bool insertBattleshipVerticalBelow(bool *F[], int startX, int startY, int length);
 
-bool insertBattleshipHorizontalLeft(bool *F, int startX, int startY, int length);
+bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int length);
 
-void makeTable();
+void makeTable(bool *F[]);
+
+bool verifyD(int naval);
 
 
 #endif //BATTLEFIELD_FUNCTION_H
