@@ -6,13 +6,13 @@ using namespace std;
 bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode) {
     switch (mode) {
         case horizontalRight:
-            return insertBattleshipHorizontalRight(*F, startX, startY, length);
+            return insertBattleshipHorizontalRight(F, startX, startY, length);
         case verticalOn:
-            return insertBattleshipVerticalOn(*F, startX, startY, length);
+            return insertBattleshipVerticalOn(F, startX, startY, length);
         case verticalBelow:
-            return insertBattleshipVerticalBelow(*F, startX, startY, length);
+            return insertBattleshipVerticalBelow(F, startX, startY, length);
         case horizontalLeft:
-            return insertBattleshipHorizontalLeft(*F, startX, startY, length);
+            return insertBattleshipHorizontalLeft(F, startX, startY, length);
         default:
             break;
     }
@@ -69,12 +69,11 @@ void makeTable(bool *F[]) {
         for (int nCol = 0; nCol < n; nCol++) {
             if (!F[nRow][nCol]) {
                 cout << "|O| ";
-                cout << "---";
             } else {
                 cout << "|X| ";
-                cout << "---";
             }
         }
+        cout << endl;
     }
 }
 

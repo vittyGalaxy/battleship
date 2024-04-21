@@ -2,7 +2,6 @@
 #ifndef BATTLEFIELD_FUNCTION_H
 #define BATTLEFIELD_FUNCTION_H
 
-
 const int n = 10;
 
 enum Mode {
