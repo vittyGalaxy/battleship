@@ -13,11 +13,11 @@ enum Mode {
 
 bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode);
 
-bool insertBattleshipVerticalOn(bool *F[], int startX, int startY, int length);
+bool insertBattleshipVerticalUp(bool *F[], int startX, int startY, int length);
 
 bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int length);
 
-bool insertBattleshipVerticalBelow(bool *F[], int startX, int startY, int length);
+bool insertBattleshipVerticalDown(bool *F[], int startX, int startY, int length);
 
 bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int length);
 
