@@ -11,6 +11,5 @@ int main() {
     insertBattleShip(battleField, 1, 2, 3, horizontalRight);
     insertBattleShip(battleField, 9, 6, 2, verticalBelow);
     makeTable();
-    ciao
     return 0;
 }
