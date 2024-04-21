@@ -3,81 +3,91 @@
 
 using namespace std;
 
-bool insertBattleShip(bool F, int startX, int startY, int length, Mode mode) {
+bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode) {
     switch (mode) {
         case horizontalRight:
-            return insertBattleshipHorizontalRight(&F, startX, startY, length);
+            return insertBattleshipHorizontalRight(*F, startX, startY, length);
         case verticalOn:
-            return insertBattleshipVerticalOn(&F, startX, startY, length);
+            return insertBattleshipVerticalOn(*F, startX, startY, length);
         case verticalBelow:
-            return insertBattleshipVerticalBelow(&F, startX, startY, length);
+            return insertBattleshipVerticalBelow(*F, startX, startY, length);
         case horizontalLeft:
-            return insertBattleshipHorizontalLeft(&F, startX, startY, length);
+            return insertBattleshipHorizontalLeft(*F, startX, startY, length);
         default:
             break;
     }
     return false;
 }
 
-bool insertBattleshipVerticalOn(bool *F, int startX, int startY, int length){
+bool insertBattleshipVerticalOn(bool *F[], int startX, int startY, int length){
     for (int row = 0; row < length; row++){
-        if (battleField[startX][startY - row]){
+        if (F[startX][startY - row]){
             return false;
         }else{
-            *F = battleField [startX] [startY - row] = true;
+            F [startX] [startY - row] = true;
         }
     }
     return true;
 }
 
-bool insertBattleshipHorizontalLeft(bool *F, int startX, int startY, int length){
+bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int length){
     for (int row = 0; row < length; row++){
-        if (battleField[startX - row][startY]){
+        if (F[startX - row][startY]){
             return false;
         }else{
-            *F = battleField [startX - row] [startY] = true;
+            F [startX - row] [startY] = true;
         }
     }
     return true;
 }
 
-bool insertBattleshipVerticalBelow(bool *F, int startX, int startY, int length){
+bool insertBattleshipVerticalBelow(bool *F[], int startX, int startY, int length){
     for (int row = 0; row < length; row++){
-        if (battleField[startX][startY + row]){
+        if (F[startX][startY + row]){
             return false;
         }else{
-            *F =  battleField [startX] [startY + row] = true;
+            F [startX] [startY + row] = true;
         }
     }
     return true;
 
 }
 
-bool insertBattleshipHorizontalRight(bool *F, int startX, int startY, int length){
+bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int length){
     for (int row = 0; row < length; row++){
-        if (battleField[startX + row][startY]){
+        if (F[startX + row][startY]){
             return false;
         }else{
-            *F = battleField [startX + row] [startY] = true;
+            F[startX + row] [startY] = true;
         }
     }
     return true;
 };
 
-void makeTable() {
+void makeTable(bool *F[]) {
     for (int nRow = 0; nRow < n; nRow++) {
         for (int nCol = 0; nCol < n; nCol++) {
-            battleField[nRow][nCol] = false;
+            F[nRow][nCol] = false;
         }
     }
 
     for (int nRow = 0; nRow < n; nRow++) {
         for (int nCol = 0; nCol < n; nCol++) {
-            if (!battleField[nRow][nCol]) {
-                cout << "|O|";
+            if (!F[nRow][nCol]) {
+                cout << "|O| ";
+                cout << "---";
             } else {
-                cout << "|X|";
+                cout << "|X| ";
+                cout << "---";
             }
         }
+    }
+}
+
+bool verifyD(int naval){
+    if ((naval > 3) || (naval < 0)){
+        return true;
+    }else{
+        return false;
     }
 }
