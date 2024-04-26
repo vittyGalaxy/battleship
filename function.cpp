@@ -4,6 +4,12 @@
 using namespace std;
 
 bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode) {
+    if (startX <= 0 || startY <= 0){
+        cout << "nave non inserita" << endl;
+        return false;
+    }
+    startX--;
+    startY--;
     switch (mode) {
         case horizontalRight:
             return insertBattleshipHorizontalRight(F, startX, startY, length);
@@ -20,6 +26,10 @@ bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode) 
 }
 
 bool insertBattleshipVerticalUp(bool *F[], int startX, int startY, int length){
+    if (((startX - length) > 10) || ((startX - length) < 0)){
+        cout << "nave non inserita" << endl;
+        return false;
+    }
     for (int row = 0; row < length; row++){
         if (F[startX - row][startY]){
             return false;
@@ -31,6 +41,10 @@ bool insertBattleshipVerticalUp(bool *F[], int startX, int startY, int length){
 }
 
 bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int length){
+    if (((startY - length) > 10) || ((startY - length) < 0)){
+        cout << "nave non inserita" << endl;
+        return false;
+    }
     for (int col = 0; col < length; col++){
         if (F[startX][startY - col]){
             return false;
@@ -42,6 +56,10 @@ bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int lengt
 }
 
 bool insertBattleshipVerticalDown(bool *F[], int startX, int startY, int length){
+    if (((startX + length) > 10) || ((startX + length) < 0)){
+        cout << "nave non inserita" << endl;
+        return false;
+    }
     for (int row = 0; row < length; row++){
         if (F[startX + row][startY]){
             return false;
@@ -54,6 +72,10 @@ bool insertBattleshipVerticalDown(bool *F[], int startX, int startY, int length)
 }
 
 bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int length){
+    if (((startX + length) > 10) || ((startX + length) < 0)){
+        cout << "nave non inserita" << endl;
+        return false;
+    }
     for (int col = 0; col < length; col++){
         if (F[startX][startY + col]){
             return false;
@@ -64,7 +86,7 @@ bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int leng
     return true;
 };
 
-void makeTable(bool *F[]) {
+void viewTable(bool *F[]) {
     for (int nRow = 0; nRow < n; nRow++) {
         for (int nCol = 0; nCol < n; nCol++) {
             if (!F[nRow][nCol]) {
@@ -77,6 +99,7 @@ void makeTable(bool *F[]) {
     }
 }
 
+//TODO WIP
 bool verifyD(int naval){
     if ((naval > 3) || (naval < 0)){
         return true;

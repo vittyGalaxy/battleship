@@ -54,12 +54,15 @@ int main() {
             battleField[nRow][nCol] = false;
         }
     }
-    insertBattleShip(battleField, 1, 1, 4, horizontalRight);
+//    insertBattleShip(battleField, 0, 0, 4, horizontalRight);
+    insertBattleShip(battleField, 11, 1, 4, horizontalRight);
+    insertBattleShip(battleField, 10, 1, 4, horizontalRight);
+//    insertBattleShip(battleField, 1, 1, 4, horizontalLeft);
 //    insertBattleShip(battleField, 6, 5, 3, horizontalLeft);
 //    insertBattleShip(battleField, 3, 4, 2, horizontalRight);
 //    insertBattleShip(battleField, 2, 5, 1, verticalOn);
 //    insertBattleShip(battleField, 1, 2, 3, horizontalRight);
 //    insertBattleShip(battleField, 9, 6, 2, verticalBelow);
-    makeTable(battleField);
+    viewTable(battleField);
     return 0;
 }

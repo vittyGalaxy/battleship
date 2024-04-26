@@ -21,7 +21,7 @@ bool insertBattleshipVerticalDown(bool *F[], int startX, int startY, int length)
 
 bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int length);
 
-void makeTable(bool *F[]);
+void viewTable(bool *F[]);
 
 bool verifyD(int naval);
 
