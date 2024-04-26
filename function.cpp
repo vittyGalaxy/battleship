@@ -99,7 +99,6 @@ void viewTable(bool *F[]) {
     }
 }
 
-//TODO WIP
 bool verifyD(int naval){
     if ((naval > 3) || (naval < 0)){
         return true;
