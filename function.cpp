@@ -31,6 +31,8 @@ bool insertBattleshipVerticalUp(int *F[], int startX, int startY, int length){
         return false;
     }
     for (int row = 0; row < length; row++){
+        // FIXME: NONO questo é grave, il controllo non lo puoi fare come su un bool!
+        // NAVI SOVRAPPOSTE
         if (F[startX - row][startY]){
             return false;
         }else{
@@ -46,6 +48,8 @@ bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, int length
         return false;
     }
     for (int col = 0; col < length; col++){
+                // FIXME: NONO questo é grave, il controllo non lo puoi fare come su un bool!
+        // NAVI SOVRAPPOSTE
         if (F[startX][startY - col]){
             return false;
         }else{
@@ -61,6 +65,8 @@ bool insertBattleshipVerticalDown(int *F[], int startX, int startY, int length){
         return false;
     }
     for (int row = 0; row < length; row++){
+                // FIXME: NONO questo é grave, il controllo non lo puoi fare come su un bool!
+        // NAVI SOVRAPPOSTE
         if (F[startX + row][startY]){
             return false;
         }else{
@@ -77,6 +83,8 @@ bool insertBattleshipHorizontalRight(int *F[], int startX, int startY, int lengt
         return false;
     }
     for (int col = 0; col < length; col++){
+                // FIXME: NONO questo é grave, il controllo non lo puoi fare come su un bool!
+        // NAVI SOVRAPPOSTE
         if (F[startX][startY + col]){
             return false;
         }else{
@@ -111,6 +119,7 @@ void viewTable(int *F[]) {
     }
 }
 
+// TYPO: metti un nome decente ti prego verifyD non ha senso verifyDimension magari
 bool verifyD(int naval){
     if ((naval > 3) || (naval < 0)){
         return true;

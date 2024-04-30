@@ -21,13 +21,16 @@ int main() {
         cin >> x;
         cout << "Inserisci y: ";
         cin >> y;
-        while(verify == false){
-            cout << "Inserisci la lunghezza da 1 a 4: ";
-            cin >> lenght;
-            if ((lenght >= 1) && (lenght <= 4)){
-                verify = true;
-            }
-        }
+        // FIXME: posso inserire 9 navi a caso, sbagliato
+        // io farei un vettore di 9 elementi e imponi l'utente a mettere la nave giusta e dove posizionarla, non quanto lunga
+        
+        // while(verify == false){
+        //     cout << "Inserisci la lunghezza da 1 a 4: ";
+        //     cin >> lenght;
+        //     if ((lenght >= 1) && (lenght <= 4)){
+        //         verify = true;
+        //     }
+        // }
         verify = false;
         cout << "Inserisci in che direzione '0' sotto, '1' a sinistra, '2' sopra, '3' a destra: ";
         cin >> direction;
