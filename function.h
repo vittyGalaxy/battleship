@@ -12,6 +12,7 @@ enum Battleship:int {
      four = 4
 };
 
+// TYPO: nomi sbagliati, verticalBottom e verticalUP
 enum Mode {
     verticalBelow = 0,
     horizontalLeft = 1,
