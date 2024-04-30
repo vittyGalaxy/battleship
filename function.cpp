@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode) {
+bool insertBattleShip(int *F[], int startX, int startY, int length, Mode mode) {
     if (startX <= 0 || startY <= 0){
         cout << "nave non inserita" << endl;
         return false;
@@ -25,7 +25,7 @@ bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode) 
     return false;
 }
 
-bool insertBattleshipVerticalUp(bool *F[], int startX, int startY, int length){
+bool insertBattleshipVerticalUp(int *F[], int startX, int startY, int length){
     if (((startX - length) > 10) || ((startX - length) < 0)){
         cout << "nave non inserita" << endl;
         return false;
@@ -34,13 +34,13 @@ bool insertBattleshipVerticalUp(bool *F[], int startX, int startY, int length){
         if (F[startX - row][startY]){
             return false;
         }else{
-            F[startX - row][startY] = true;
+            F[startX - row][startY] = four;
         }
     }
     return true;
 }
 
-bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int length){
+bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, int length){
     if (((startY - length) > 10) || ((startY - length) < 0)){
         cout << "nave non inserita" << endl;
         return false;
@@ -49,13 +49,13 @@ bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int lengt
         if (F[startX][startY - col]){
             return false;
         }else{
-            F[startX][startY - col] = true;
+            F[startX][startY - col] = three;
         }
     }
     return true;
 }
 
-bool insertBattleshipVerticalDown(bool *F[], int startX, int startY, int length){
+bool insertBattleshipVerticalDown(int *F[], int startX, int startY, int length){
     if (((startX + length) > 10) || ((startX + length) < 0)){
         cout << "nave non inserita" << endl;
         return false;
@@ -64,14 +64,14 @@ bool insertBattleshipVerticalDown(bool *F[], int startX, int startY, int length)
         if (F[startX + row][startY]){
             return false;
         }else{
-            F [startX + row][startY] = true;
+            F [startX + row][startY] = two;
         }
     }
     return true;
 
 }
 
-bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int length){
+bool insertBattleshipHorizontalRight(int *F[], int startX, int startY, int length){
     if (((startX + length) > 10) || ((startX + length) < 0)){
         cout << "nave non inserita" << endl;
         return false;
@@ -80,19 +80,31 @@ bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int leng
         if (F[startX][startY + col]){
             return false;
         }else{
-            F[startX] [startY + col] = true;
+            F[startX] [startY + col] = one;
         }
     }
     return true;
 };
 
-void viewTable(bool *F[]) {
+void viewTable(int *F[]) {
     for (int nRow = 0; nRow < n; nRow++) {
         for (int nCol = 0; nCol < n; nCol++) {
-            if (!F[nRow][nCol]) {
-                cout << "|O| ";
-            } else {
-                cout << "|X| ";
+            switch (F[nRow][nCol]) {
+                case zero:
+                    cout << "|O|";
+                    break;
+                case one:
+                    cout << "|A|";
+                    break;
+                case two:
+                    cout << "|B|";
+                    break;
+                case three:
+                    cout << "|C|";
+                    break;
+                case four:
+                    cout << "|D|";
+                    break;
             }
         }
         cout << endl;
