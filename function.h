@@ -4,6 +4,14 @@
 
 const int n = 10;
 
+enum Battleship:int {
+    zero = 0,
+     one = 1,
+     two = 2,
+     three = 3,
+     four = 4
+};
+
 enum Mode {
     verticalBelow = 0,
     horizontalLeft = 1,
@@ -11,17 +19,17 @@ enum Mode {
     horizontalRight = 3
 };
 
-bool insertBattleShip(bool *F[], int startX, int startY, int length, Mode mode);
+bool insertBattleShip(int *F[], int startX, int startY, int length, Mode mode);
 
-bool insertBattleshipVerticalUp(bool *F[], int startX, int startY, int length);
+bool insertBattleshipVerticalUp(int *F[], int startX, int startY, int length);
 
-bool insertBattleshipHorizontalRight(bool *F[], int startX, int startY, int length);
+bool insertBattleshipHorizontalRight(int *F[], int startX, int startY, int length);
 
-bool insertBattleshipVerticalDown(bool *F[], int startX, int startY, int length);
+bool insertBattleshipVerticalDown(int *F[], int startX, int startY, int length);
 
-bool insertBattleshipHorizontalLeft(bool *F[], int startX, int startY, int length);
+bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, int length);
 
-void viewTable(bool *F[]);
+void viewTable(int *F[]);
 
 bool verifyD(int naval);
 
