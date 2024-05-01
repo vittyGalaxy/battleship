@@ -32,10 +32,12 @@ bool insertBattleshipVerticalUp(int *F[], int startX, int startY, int length){
     }
     for (int row = 0; row < length; row++){
         // FIXME: NONO questo é grave, il controllo non lo puoi fare come su un bool!
-        // NAVI SOVRAPPOSTE
         if (F[startX - row][startY]){
             return false;
         }else{
+            if (F[startX - row][startY] != zero){
+                return false;
+            }
             F[startX - row][startY] = four;
         }
     }
@@ -49,10 +51,12 @@ bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, int length
     }
     for (int col = 0; col < length; col++){
                 // FIXME: NONO questo é grave, il controllo non lo puoi fare come su un bool!
-        // NAVI SOVRAPPOSTE
         if (F[startX][startY - col]){
             return false;
         }else{
+            if (F[startX][startY - col] != zero){
+                return false;
+            }
             F[startX][startY - col] = three;
         }
     }
@@ -66,10 +70,12 @@ bool insertBattleshipVerticalDown(int *F[], int startX, int startY, int length){
     }
     for (int row = 0; row < length; row++){
                 // FIXME: NONO questo é grave, il controllo non lo puoi fare come su un bool!
-        // NAVI SOVRAPPOSTE
         if (F[startX + row][startY]){
             return false;
         }else{
+            if (F[startX + row][startY] != zero){
+                return false;
+            }
             F [startX + row][startY] = two;
         }
     }
@@ -84,10 +90,12 @@ bool insertBattleshipHorizontalRight(int *F[], int startX, int startY, int lengt
     }
     for (int col = 0; col < length; col++){
                 // FIXME: NONO questo é grave, il controllo non lo puoi fare come su un bool!
-        // NAVI SOVRAPPOSTE
         if (F[startX][startY + col]){
             return false;
         }else{
+            if (F[startX][startY + col] != zero){
+                return false;
+            }
             F[startX] [startY + col] = one;
         }
     }
