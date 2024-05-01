@@ -12,23 +12,22 @@ enum Battleship:int {
      four = 4
 };
 
-// TYPO: nomi sbagliati, verticalBottom e verticalUP
 enum Mode {
-    verticalBelow = 0,
+    verticalBottom = 0,
     horizontalLeft = 1,
-    verticalOn = 2,
+    verticalUp = 2,
     horizontalRight = 3
 };
 
-bool insertBattleShip(int *F[], int startX, int startY, int length, Mode mode);
+bool insertBattleShip(int *F[], int startX, int startY, Battleship length, Mode mode);
 
-bool insertBattleshipVerticalUp(int *F[], int startX, int startY, int length);
+bool insertBattleshipVerticalUp(int *F[], int startX, int startY, Battleship length);
 
-bool insertBattleshipHorizontalRight(int *F[], int startX, int startY, int length);
+bool insertBattleshipHorizontalRight(int *F[], int startX, int startY, Battleship length);
 
-bool insertBattleshipVerticalDown(int *F[], int startX, int startY, int length);
+bool insertBattleshipVerticalBottom(int *F[], int startX, int startY, Battleship length);
 
-bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, int length);
+bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, Battleship length);
 
 void viewTable(int *F[]);
 

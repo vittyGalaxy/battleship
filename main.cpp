@@ -5,7 +5,8 @@ using namespace std;
 
 int main() {
     Mode mode;
-    int x = 0, y = 0, lenght = 0, direction = 0;
+    int x = 0, y = 0, direction = 0;
+    Battleship lenght = zero;
     bool verify = false;
     int* battleField[n];
     for(int i=0; i<n; i++){
@@ -16,40 +17,10 @@ int main() {
             battleField[nRow][nCol] = zero;
         }
     }
+    int choises[9] = {one, one, two, two, two, three, three, three, four};
     for (int i = 0; i < 9; i++){
-        switch (i) {
-            case 0:
-                cout << "nave da 4" << endl;
-                lenght = 4;
-                break;
-            case 1:
-                cout << "nave da 3" << endl;
-                lenght = 3;
-                break;
-            case 2:
-                cout << "nave da 3" << endl;
-                break;
-            case 3:
-                cout << "nave da 3" << endl;
-                break;
-            case 4:
-                cout << "nave da 2" << endl;
-                lenght = 2;
-                break;
-            case 5:
-                cout << "nave da 2" << endl;
-                break;
-            case 6:
-                cout << "nave da 2" << endl;
-                break;
-            case 7:
-                cout << "nave da 1" << endl;
-                lenght = 1;
-                break;
-            case 8:
-                cout << "nave da 1" << endl;
-                break;
-        }
+        lenght = (Battleship)choises[i];
+        cout << "Inserisci nave da " << lenght << endl;
         cout << "Inserisci x: ";
         cin >> x;
         cout << "Inserisci y: ";
@@ -57,11 +28,12 @@ int main() {
         cout << "Inserisci in che direzione '0' sotto, '1' a sinistra, '2' sopra, '3' a destra: ";
         cin >> direction;
         mode = (Mode)direction;
-        insertBattleShip(battleField, x, y, lenght, mode);
         verify = insertBattleShip(battleField, x, y, lenght, mode);
         if (verify == false){
             cout << "Rimetti la nave" << endl;
             i--;
+        }else{
+            cout << "nave inserita" << endl;
         }
     }
     viewTable(battleField);
