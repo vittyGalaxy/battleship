@@ -77,7 +77,7 @@ bool insertBattleshipHorizontalRight(int *F[], int startX, int startY, int lengt
         return false;
     }
     for (int col = 0; col < length; col++){
-        if (F[startX][startY + col]){
+        if (F[startX][startY + col] != zero){
             return false;
         }else{
             F[startX] [startY + col] = one;
