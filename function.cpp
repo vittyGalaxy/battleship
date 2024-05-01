@@ -110,12 +110,3 @@ void viewTable(int *F[]) {
         cout << endl;
     }
 }
-
-// TYPO: metti un nome decente ti prego verifyD non ha senso verifyDimension magari
-bool verifyD(int naval){
-    if ((naval > 3) || (naval < 0)){
-        return true;
-    }else{
-        return false;
-    }
-}

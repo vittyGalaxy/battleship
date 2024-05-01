@@ -32,7 +32,5 @@ bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, int length
 
 void viewTable(int *F[]);
 
-bool verifyD(int naval);
-
 
 #endif //BATTLEFIELD_FUNCTION_H
