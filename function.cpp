@@ -26,7 +26,7 @@ bool insertBattleShip(int *F[], int startX, int startY, Battleship length, Mode 
 }
 
 bool insertBattleshipVerticalUp(int *F[], int startX, int startY, Battleship length){
-    if ((((startX + 1) - length) > 10) || (((startX + 1)- length) < 0)){
+    if ((((startX - 1) - length) > 10) || (((startX - 1)- length) < 0)){
         cout << "nave non inserita" << endl;
         return false;
     }
@@ -41,7 +41,7 @@ bool insertBattleshipVerticalUp(int *F[], int startX, int startY, Battleship len
 }
 
 bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, Battleship length){
-    if ((((startY+1) - length) > 10) || (((startY + 1) - length) < 0)){
+    if ((((startY + 1) - length) > 10) || (((startY + 1) - length) < 0)){
         cout << "nave non inserita" << endl;
         return false;
     }
