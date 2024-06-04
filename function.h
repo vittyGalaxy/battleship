@@ -31,5 +31,11 @@ bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, Battleship
 
 void viewTable(int *F[]);
 
+// void save();
+
+// bool load();
+
+// bool removeShip();
+
 
 #endif //BATTLEFIELD_FUNCTION_H
