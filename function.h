@@ -31,5 +31,9 @@ bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, Battleship
 
 void viewTable(int *F[]);
 
+void saveFile(int *F[]);
+
+void loadFile(int *F[]);
+
 
 #endif //BATTLEFIELD_FUNCTION_H

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "function.h"
+#include <fstream>
 
 using namespace std;
 
@@ -109,4 +110,30 @@ void viewTable(int *F[]) {
         }
         cout << endl;
     }
+}
+
+void saveFile(int *F[]){
+    ofstream battleshipFile("BattleShip.txt");
+    if (battleshipFile.is_open()) {
+        for (int nRow = 0; nRow < n; nRow++){
+            for (int nCol = 0; nCol < n; nCol++){
+                battleshipFile << F[nRow][nCol] << " ";
+            }
+            battleshipFile << endl;
+        }
+        battleshipFile.close();
+    } else {
+        cout << "Errore nell'apertura del file" << endl;
+    }
+}
+
+void loadFile(int *F[]){
+    ifstream battleshipFile;
+    battleshipFile.open("BattleShip.txt");
+    for (int nRow = 0; nRow < n; nRow++){
+        for (int nCol = 0; nCol < n; nCol++){
+            battleshipFile >> F[nRow][nCol];
+        }
+    }
+    battleshipFile.close();
 }
