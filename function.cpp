@@ -32,7 +32,7 @@ bool insertBattleshipVerticalUp(int *F[], int startX, int startY, Battleship len
         return false;
     }
     for (int row = 0; row < length; row++){
-        if (F[startX - row][startY] != zero){
+        if (F[startX - row][startY] != water){
             return false;
         }else{
             F[startX - row][startY] = length;
@@ -47,7 +47,7 @@ bool insertBattleshipHorizontalLeft(int *F[], int startX, int startY, Battleship
         return false;
     }
     for (int col = 0; col < length; col++){
-        if (F[startX][startY - col] != zero){
+        if (F[startX][startY - col] != water){
             return false;
         }else{
             F[startX][startY - col] = length;
@@ -62,7 +62,7 @@ bool insertBattleshipVerticalBottom(int *F[], int startX, int startY, Battleship
         return false;
     }
     for (int row = 0; row < length; row++){
-        if (F[startX + row][startY] != zero){
+        if (F[startX + row][startY] != water){
             return false;
         }else{
             F [startX + row][startY] = length;
@@ -78,7 +78,7 @@ bool insertBattleshipHorizontalRight(int *F[], int startX, int startY, Battleshi
         return false;
     }
     for (int col = 0; col < length; col++){
-        if (F[startX][startY + col] != zero){
+        if (F[startX][startY + col] != water){
             return false;
         }else{
             F[startX] [startY + col] = length;
@@ -91,7 +91,7 @@ void viewTable(int *F[]) {
     for (int nRow = 0; nRow < n; nRow++) {
         for (int nCol = 0; nCol < n; nCol++) {
             switch (F[nRow][nCol]) {
-                case zero:
+                case water:
                     cout << "|O|";
                     break;
                 case one:
@@ -104,7 +104,7 @@ void viewTable(int *F[]) {
                     cout << "|C|";
                     break;
                 case four:
-                    cout << "|D|";
+                    cout << "|E|";
                     break;
             }
         }
@@ -113,7 +113,7 @@ void viewTable(int *F[]) {
 }
 
 void saveFile(int *F[]){
-    ofstream battleshipFile("BattleShip.txt");
+    ofstream battleshipFile(R"(..\files\BattleShip.txt)");
     if (battleshipFile.is_open()) {
         for (int nRow = 0; nRow < n; nRow++){
             for (int nCol = 0; nCol < n; nCol++){
@@ -129,11 +129,22 @@ void saveFile(int *F[]){
 
 void loadFile(int *F[]){
     ifstream battleshipFile;
-    battleshipFile.open("BattleShip.txt");
+    battleshipFile.open(R"(..\files\BattleShip.txt)");
     for (int nRow = 0; nRow < n; nRow++){
         for (int nCol = 0; nCol < n; nCol++){
             battleshipFile >> F[nRow][nCol];
         }
     }
     battleshipFile.close();
+}
+
+void clearBattleField(int *F[]){
+    for(int i = 0; i < n; i++){
+        F[i] = new int[n];
+    }
+    for (int nRow = 0; nRow < n; nRow++) {
+        for (int nCol = 0; nCol < n; nCol++) {
+            F[nRow][nCol] = water;
+        }
+    }
 }

@@ -44,5 +44,7 @@ void saveFile(int *F[]);
 
 void loadFile(int *F[]);
 
+void clearBattleField(int *F[]);
+
 
 #endif //BATTLEFIELD_FUNCTION_H
