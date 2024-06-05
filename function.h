@@ -5,7 +5,7 @@
 const int n = 10;
 
 enum Battleship:int {
-    zero = 0,
+    water = 0,
      one = 1,
      two = 2,
      three = 3,
@@ -17,6 +17,15 @@ enum Mode {
     horizontalLeft = 1,
     verticalUp = 2,
     horizontalRight = 3
+};
+
+struct BattleShip{
+    Battleship evalue;
+    std::string name;
+    int xInit;
+    int yInit;
+    int xEnd;
+    int yEnd;
 };
 
 bool insertBattleShip(int *F[], int startX, int startY, Battleship length, Mode mode);
