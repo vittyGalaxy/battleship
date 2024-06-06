@@ -8,20 +8,22 @@
 
 #include <cmath>
 #include <algorithm>
+#include <string>
 
 /*---------------------------------------------------------------------------*/
 class BattleShip
 {
 private:
-    int     xInit;
-    int     yInit;
-    int     xEnd;
-    int     yEnd;
-    bool    valid;
+    int             xInit;
+    int             yInit;
+    int             xEnd;
+    int             yEnd;
+    bool            valid;
+    std::string     name;
 
 public:
-    explicit inline BattleShip(int xInit, int yInit, int xEnd, int yEnd)
-        : xInit(xInit), yInit(yInit), xEnd(xEnd), yEnd(yEnd), valid(false)
+    explicit inline BattleShip(int xInit, int yInit, int xEnd, int yEnd, std::string name)
+        : xInit(xInit), yInit(yInit), xEnd(xEnd), yEnd(yEnd), valid(false), name(name)
     {
         valid = checkPositiveValues() && checkIsNotDiagonal();
     }
@@ -38,6 +40,25 @@ public:
 
     inline bool isValid() const{
         return valid;
+    }
+
+    inline int getXInit() const{
+        return xInit;
+    }
+
+    inline int getYInit() const{
+        return yInit;
+    }
+
+    inline int getXEnd() const{
+        return xEnd;
+    }
+
+    inline int getYEnd() const{
+        return yEnd;
+    }
+    inline std::string getname() const{
+        return name;
     }
 
 private:

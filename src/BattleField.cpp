@@ -1,4 +1,4 @@
-#include "BattleField.h"
+#include "../include/BattleField.h"
 
 /*---------------------------------------------------------------------------*/
 void BattleField::init(){
