@@ -31,7 +31,8 @@ bool BattleField::insertShip(const BattleShip &bs) {
     if(!fillCells(bs, ship))    { return false; }
 
     // add ship
-    aoBattleships.push_back(bs);
+    aoBattleships.push_back(BattleShip(bs));
+
     return true;
 } 
 
@@ -40,26 +41,19 @@ bool BattleField::removeShip(const BattleShip &bs) {
     if(isEmpty())       { return false; }
     if(!bs.isValid())   { return false; }
     
-    // FIXMEEEE
-    aoBattleships.erase(std::remove(
-            aoBattleships.begin(), 
-            aoBattleships.end(), 
-            bs), 
-        aoBattleships.end()
-    );
-
     // find bs
-    auto it = std::find(aoBattleships.begin(), aoBattleships.end(), bs);
-    if(it != aoBattleships.end())   { 
-        // remove from vector
-        aoBattleships.erase(it);
-
-        // remove from BF
-        fillCells(bs, water);
-        return true;
+    auto it = std::find(aoBattleships.cbegin(), aoBattleships.cend(), bs);
+    if(it == aoBattleships.cend())   { 
+        // NOT FOUND
+        return false;
     }
 
-    return false;
+    // remove from vector
+    aoBattleships.erase(it);
+
+    // remove from BF
+    fillCells(bs, water);
+    return true;
 } 
 
 /*---------------------------------------------------------------------------*/

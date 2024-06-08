@@ -137,16 +137,17 @@ TEST(insertBF, ShipWithCommonCells){
 }
 
 TEST(removeBF, correctBS){
-    // BattleShip oBS_1(1,1,1,3);
+    BattleShip oBS_1(1,1,1,3);
 
-    // BattleField oBF;
-    // EXPECT_EQ(oBF.getNumberOfShips(), 0);
+    BattleField oBF;
+    EXPECT_EQ(oBF.getNumberOfShips(), 0);
 
-    // oBF.insertShip(oBS_1);
-    // EXPECT_EQ(oBF.getNumberOfShips(), 1);
+    oBF.insertShip(oBS_1);
+    EXPECT_EQ(oBF.getNumberOfShips(), 1);
 
-    // oBF.removeShip(oBS_1);
-    // EXPECT_EQ(oBF.getNumberOfShips(), 0);
+    bool bRes = oBF.removeShip(oBS_1);
+    EXPECT_EQ(bRes, true);
+    EXPECT_EQ(oBF.getNumberOfShips(), 0);
 }
 
 TEST(removeBF, wrongBS){
