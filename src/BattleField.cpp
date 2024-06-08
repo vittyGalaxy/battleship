@@ -12,18 +12,14 @@ void BattleField::init(){
 
 /*---------------------------------------------------------------------------*/
 void BattleField::save(const string& filename){
-    // TODO
-
     std::ofstream oFile(filename);
     for(int i = 0; i < aoBattleships.size(); i++){
-        
-        // oFile   << aoBattleships.at(i).getXInit() 
-        //         << aoBattleships.at(i).getXEnd();
-
-        // TODO completare con altri campi
-        // TODO completare con linee, dovrá esserci un endl
+         oFile   << aoBattleships.at(i).getXInit()
+                 << aoBattleships.at(i).getYInit()
+                 << aoBattleships.at(i).getXEnd()
+                 << aoBattleships.at(i).getYEnd()
+                 << endl;
     }
-    
 }
 
 /*---------------------------------------------------------------------------*/
