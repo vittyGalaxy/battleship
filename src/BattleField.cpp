@@ -101,12 +101,13 @@ bool BattleField::isEmpty(){
 /*---------------------------------------------------------------------------*/
 bool BattleField::fillCells(const BattleShip &bs, State state){
     if(bs.getLength() > N)  { return false; }
-    
-    // get coords
-    int nXInit  = bs.getXInit() - 1;
-    int nYInit  = bs.getYInit() - 1;
-    int nXEnd   = bs.getXEnd()  - 1;
-    int nYEnd   = bs.getYEnd()  - 1;
+
+    //get coords
+    int nXInit = std::min(bs.getXInit()-1, bs.getXEnd()-1);
+    int nYInit = std::min(bs.getYInit()-1, bs.getYEnd()-1);
+    int nXEnd = std::max(bs.getXInit()-1, bs.getXEnd()-1);
+    int nYEnd = std::max(bs.getYInit()-1, bs.getYEnd()-1);
+
 
     // verify if there is a ship
     if((state == ship) && isThereAShip(nXInit, nYInit, nXEnd, nYEnd)) { 
