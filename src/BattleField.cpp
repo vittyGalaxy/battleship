@@ -1,4 +1,5 @@
 #include "../include/BattleField.h"
+#include <fstream>
 
 /*---------------------------------------------------------------------------*/
 void BattleField::init(){
@@ -12,14 +13,28 @@ void BattleField::init(){
 /*---------------------------------------------------------------------------*/
 void BattleField::save(const string& filename){
     // TODO
-    // salvare il campo anche grezzo va bene
-    // salvare il campo con il nome che viene passato in questa funzione
+
+    std::ofstream oFile(filename);
+    for(int i = 0; i < aoBattleships.size(); i++){
+        
+        // oFile   << aoBattleships.at(i).getXInit() 
+        //         << aoBattleships.at(i).getXEnd();
+
+        // TODO completare con altri campi
+        // TODO completare con linee, dovrá esserci un endl
+    }
+    
 }
 
 /*---------------------------------------------------------------------------*/
 bool BattleField::load(const string& filename){
     // TODO
     // caricare il campo
+
+    // caricare il vettore di navi!!
+    // BattleShip oBS(/* valori presi dal load */);
+    // aoBattleships.push_bash(oBS);
+    // riempire il campo con la nave
 }
 
 /*---------------------------------------------------------------------------*/
