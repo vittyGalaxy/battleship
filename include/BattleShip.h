@@ -27,9 +27,14 @@ public:
         valid = checkPositiveValues() && checkIsNotDiagonal();
     }
 
-    BattleShip(const BattleShip& oB){
-        BattleShip(oB.getXInit(), oB.getYInit(), oB.getXEnd(), oB.getYEnd(), oB.getName());
-    }
+    BattleShip(const BattleShip& oB)
+        :   xInit(oB.getXInit()), 
+            yInit(oB.getYInit()), 
+            xEnd(oB.getXEnd()), 
+            yEnd(oB.getYEnd()), 
+            name(oB.getName()), 
+            valid(oB.isValid())
+    { }
 
     BattleShip& operator=(const BattleShip& oB){
         xInit   = oB.getXInit();
@@ -41,7 +46,7 @@ public:
         return *this;
     }
 
-    inline bool operator==(const BattleShip& oB){
+    inline bool operator==(const BattleShip& oB) const {
         return ((oB.getXInit()   == xInit)    && 
                 (oB.getXEnd()    == xEnd)     && 
                 (oB.getYInit()   == yInit)    && 
