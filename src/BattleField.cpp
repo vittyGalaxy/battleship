@@ -42,17 +42,18 @@ bool BattleField::removeShip(const BattleShip &bs) {
     if(!bs.isValid())   { return false; }
     
     // find bs
-    auto it = std::find(aoBattleships.cbegin(), aoBattleships.cend(), bs);
-    if(it == aoBattleships.cend())   { 
+    auto itBS = std::find(aoBattleships.cbegin(), aoBattleships.cend(), bs);
+    if(itBS == aoBattleships.cend())   { 
         // NOT FOUND
         return false;
     }
 
     // remove from vector
-    aoBattleships.erase(it);
+    aoBattleships.erase(itBS);
 
     // remove from BF
     fillCells(bs, water);
+
     return true;
 } 
 
@@ -85,7 +86,7 @@ bool BattleField::isEmpty(){
 }
 
 /*---------------------------------------------------------------------------*/
-bool BattleField::fillCells(const BattleShip &bs, State eState){
+bool BattleField::fillCells(const BattleShip &bs, State state){
     if(bs.getLength() > N)  { return false; }
     
     // get coords
@@ -95,18 +96,18 @@ bool BattleField::fillCells(const BattleShip &bs, State eState){
     int nYEnd   = bs.getYEnd()  - 1;
 
     // verify if there is a ship
-    if((eState == ship) && isThereAShip(nXInit, nYInit, nXEnd, nYEnd)) { 
+    if((state == ship) && isThereAShip(nXInit, nYInit, nXEnd, nYEnd)) { 
         return false; 
     }
 
     // horizontal
     for(int x = nXInit; x <= nXEnd; x++){
-        BF[nYInit][x] = ship;
+        BF[nYInit][x] = state;
     }
 
     // vertical
     for(int y = nYInit; y <= nYEnd; y++){
-        BF[y][nXInit] = ship;
+        BF[y][nXInit] = state;
     }
 
     return true;
