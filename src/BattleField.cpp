@@ -59,6 +59,7 @@ bool BattleField::removeShip(const BattleShip &bs) {
 
 /*---------------------------------------------------------------------------*/
 void BattleField::show(){
+    std::cout << "--------------------------------" << std::endl;
     for (int nY = 0; nY < N; nY++) {
         for (int nX = 0; nX < N; nX++) {
             switch (BF[nY][nX]) {
@@ -73,6 +74,7 @@ void BattleField::show(){
         }
         cout << endl;
     }
+    std::cout << "--------------------------------" << std::endl;
 }
 
 /*---------------------------------------------------------------------------*/

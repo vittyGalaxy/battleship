@@ -74,10 +74,14 @@ TEST(insertBF, CorrectShip){
     BattleField oBF;
     EXPECT_EQ(oBF.getNumberOfShips(), 0);
 
+
+    //oBF.show();
+
     oBF.insertShip(oBS);
     EXPECT_EQ(oBF.getNumberOfShips(), 1);    
     EXPECT_EQ(BFSupervisor(oBF).isThereAShip(0,0,0,2), true);
 
+    //oBF.show();
 
     BattleShip oBSMono(4,4,4,4);
     EXPECT_EQ(oBSMono.getLength(), 1);
@@ -85,6 +89,8 @@ TEST(insertBF, CorrectShip){
     oBF.insertShip(oBSMono);
     EXPECT_EQ(oBF.getNumberOfShips(), 2);  
     EXPECT_EQ(BFSupervisor(oBF).isThereAShip(3,3,3,3), true);
+    
+    //oBF.show();
 }
 
 TEST(insertBF, WrongShip){
@@ -142,10 +148,16 @@ TEST(removeBF, correctBS){
     BattleField oBF;
     EXPECT_EQ(oBF.getNumberOfShips(), 0);
 
+    //oBF.show();
+
     oBF.insertShip(oBS_1);
     EXPECT_EQ(oBF.getNumberOfShips(), 1);
 
+    //oBF.show();
+
     bool bRes = oBF.removeShip(oBS_1);
+
+    //oBF.show();
     EXPECT_EQ(bRes, true);
     EXPECT_EQ(oBF.getNumberOfShips(), 0);
 }
