@@ -11,8 +11,7 @@
 #include <string>
 
 /*---------------------------------------------------------------------------*/
-class BattleShip
-{
+class BattleShip {
 private:
     int             xInit;
     int             yInit;
@@ -22,14 +21,32 @@ private:
     std::string     name;
 
 public:
-    explicit inline BattleShip(int xInit, int yInit, int xEnd, int yEnd, std::string name)
+    explicit inline BattleShip(int xInit, int yInit, int xEnd, int yEnd, std::string name = "")
         : xInit(xInit), yInit(yInit), xEnd(xEnd), yEnd(yEnd), valid(false), name(name)
     {
         valid = checkPositiveValues() && checkIsNotDiagonal();
     }
 
-    BattleShip(const BattleShip& oB) = delete;
-    BattleShip& operator=(const BattleShip& oB) = delete;
+    BattleShip(const BattleShip& oB){
+        BattleShip(oB.getXInit(), oB.getYInit(), oB.getXEnd(), oB.getYEnd(), oB.getName());
+    }
+
+    BattleShip& operator=(const BattleShip& oB){
+        xInit   = oB.getXInit();
+        yInit   = oB.getYInit();
+        xEnd    = oB.getXEnd();
+        yEnd    = oB.getYEnd();
+        name    = oB.getName();
+        valid   = checkPositiveValues() && checkIsNotDiagonal();
+        return *this;
+    }
+
+    inline bool operator==(const BattleShip& oB){
+        return ((oB.getXInit()   == xInit)    && 
+                (oB.getXEnd()    == xEnd)     && 
+                (oB.getYInit()   == yInit)    && 
+                (oB.getYEnd()    == yEnd));
+    }
 
     inline ~BattleShip(){}
 
@@ -57,7 +74,7 @@ public:
     inline int getYEnd() const{
         return yEnd;
     }
-    inline std::string getname() const{
+    inline std::string getName() const{
         return name;
     }
 
