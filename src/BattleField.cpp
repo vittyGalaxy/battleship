@@ -8,6 +8,7 @@ void BattleField::init(){
             BF[nRow][nCol] = water;
         }
     }
+    aoBattleships.clear();
 }
 
 /*---------------------------------------------------------------------------*/
@@ -24,13 +25,21 @@ void BattleField::save(const string& filename){
 
 /*---------------------------------------------------------------------------*/
 bool BattleField::load(const string& filename){
-    // TODO
-    // caricare il campo
+    int xInit = 0, yInit = 0, xEnd = 0, yEnd = 0;
 
-    // caricare il vettore di navi!!
-    // BattleShip oBS(/* valori presi dal load */);
-    // aoBattleships.push_bash(oBS);
-    // riempire il campo con la nave
+    //opening file
+    std::ifstream iFile(filename);
+    if (iFile.is_open()){
+
+        //uploading files
+        while(!iFile.eof()){
+            iFile >> xInit >> yInit >> xEnd >> yEnd;
+            BattleShip oBS(xInit, yInit, xEnd, yEnd);
+            insertShip(oBS);
+        }
+    }else{return false;}
+
+    return true;
 }
 
 /*---------------------------------------------------------------------------*/
