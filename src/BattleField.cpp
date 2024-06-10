@@ -25,12 +25,14 @@ void BattleField::save(const string& filename){
 
 /*---------------------------------------------------------------------------*/
 bool BattleField::load(const string& filename){
-    init();
     int xInit = 0, yInit = 0, xEnd = 0, yEnd = 0;
 
     //opening file
     std::ifstream iFile(filename);
     if (iFile.is_open()){
+        
+        // reinit field
+        init();
 
         //uploading files
         while(!iFile.eof()){
