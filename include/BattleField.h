@@ -6,6 +6,9 @@
 */
 /*---------------------------------------------------------------------------*/
 
+#ifndef BATTLEFIELD_H
+#define BATTLEFIELD_H
+
 #include "BattleShip.h"
 
 #include <vector>
@@ -60,3 +63,4 @@ private:
     bool isThereAShip(int nXInit, int nYInit, int nXEnd, int nYEnd);
 };
 
+#endif // BATTLEFIELD_H

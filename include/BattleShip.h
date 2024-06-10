@@ -6,6 +6,9 @@
 */
 /*---------------------------------------------------------------------------*/
 
+#ifndef BATTLESHIP_H
+#define BATTLESHIP_H
+
 #include <cmath>
 #include <algorithm>
 #include <string>
@@ -96,3 +99,5 @@ private:
         return (xInit != xEnd) && (yInit != yEnd) ? false : true;
     }
 };
+
+#endif // BATTLESHIP_H
