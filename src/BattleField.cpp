@@ -15,10 +15,10 @@ void BattleField::init(){
 void BattleField::save(const string& filename){
     std::ofstream oFile(filename);
     for(int i = 0; i < aoBattleships.size(); i++){
-         oFile   << aoBattleships.at(i).getXInit()
-                 << aoBattleships.at(i).getYInit()
-                 << aoBattleships.at(i).getXEnd()
-                 << aoBattleships.at(i).getYEnd()
+         oFile   << aoBattleships.at(i).getXInit() << " "
+                 << aoBattleships.at(i).getYInit() << " "
+                 << aoBattleships.at(i).getXEnd() << " "
+                 << aoBattleships.at(i).getYEnd() << " "
                  << endl;
     }
 }
