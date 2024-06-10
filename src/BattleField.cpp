@@ -25,8 +25,7 @@ void BattleField::save(const string& filename){
 
 /*---------------------------------------------------------------------------*/
 bool BattleField::load(const string& filename){
-    BattleField bf;
-    bf.init();
+    init();
     int xInit = 0, yInit = 0, xEnd = 0, yEnd = 0;
 
     //opening file
