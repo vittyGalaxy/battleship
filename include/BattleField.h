@@ -33,8 +33,8 @@ private:
 
     // attributes
 private:
-    State                           BF[N][N];
-    std::vector<BattleShip>         aoBattleships;
+    State                            BF[N][N];
+    std::vector<BattleShip>          aoBattleships;
 
 public:
     explicit inline BattleField() : aoBattleships() {
@@ -44,18 +44,22 @@ public:
     inline ~BattleField(){}
 
 public:    
-    void init();
-    void save(const string& filename);
-    bool load(const string& filename);
-    bool insertShip(const BattleShip& bs);
-    bool removeShip(const BattleShip& bs);
-    bool isReady();
-    bool isEmpty();
-    void show();
+    void    init();
+    void    save(const string& filename);
+    bool    load(const string& filename);
+    bool    insertShip(const BattleShip& bs);
+    bool    removeShip(const BattleShip& bs);
+    bool    isReady();
+    bool    isEmpty();
+    void    show();
 
 public:
     inline int getNumberOfShips() const {
         return aoBattleships.size();
+    }
+
+    inline State getCell(int nY, int nX){
+        return BF[nY][nX];
     }
 
 private:
