@@ -47,15 +47,14 @@ bool BattleField::load(const string& filename){
 
 /*---------------------------------------------------------------------------*/
 bool BattleField::insertShip(const BattleShip &bs) {
-    if(isReady())       { return false; }
-    if(!bs.isValid())   { return false; }    
+    if(isReady())               { return false; }
+    if(!bs.isValid())           { return false; }    
 
     // save ship into field
     if(!fillCells(bs, ship))    { return false; }
 
     // add ship
-    aoBattleships.push_back(BattleShip(bs));
-
+    aoBattleships.push_back(bs);
     return true;
 } 
 
@@ -65,8 +64,8 @@ bool BattleField::removeShip(const BattleShip &bs) {
     if(!bs.isValid())   { return false; }
     
     // find bs
-    auto itBS = std::find(aoBattleships.cbegin(), aoBattleships.cend(), bs);
-    if(itBS == aoBattleships.cend())   { 
+    auto itBS = std::find(aoBattleships.begin(), aoBattleships.end(), bs);
+    if(itBS == aoBattleships.end())   { 
         // NOT FOUND
         return false;
     }
@@ -102,7 +101,7 @@ void BattleField::show(){
 
 /*---------------------------------------------------------------------------*/
 bool BattleField::isReady(){
-    return (aoBattleships.size() == NUM_SHIPS); 
+    return (getNumberOfShips() == NUM_SHIPS); 
 }
 
 /*---------------------------------------------------------------------------*/
@@ -112,7 +111,11 @@ bool BattleField::isEmpty(){
 
 /*---------------------------------------------------------------------------*/
 bool BattleField::fillCells(const BattleShip &bs, State state){
-    if(bs.getLength() > N)  { return false; }
+    if(bs.getLength() > N)      { return false; }
+    if(bs.getXInit() > N)       { return false; }
+    if(bs.getXEnd() > N)        { return false; }
+    if(bs.getYInit() > N)       { return false; }
+    if(bs.getYEnd() > N)        { return false; }
 
     //get coords
     int nXInit = std::min(bs.getXInit()-1, bs.getXEnd()-1);
