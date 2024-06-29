@@ -13,9 +13,17 @@
 
 #include <vector>
 #include <iostream>
-
+#include <optional>
+#include <memory>
 #include <string>
 using namespace std;
+
+struct Point
+{
+    int x;
+    int y;
+};
+
 
 /*---------------------------------------------------------------------------*/
 class BattleField {
@@ -35,6 +43,8 @@ private:
 private:
     State                            BF[N][N];
     std::vector<BattleShip>          aoBattleships;
+
+    vector<vector<shared_ptr<BattleShip>>>      mpoBF;
 
 public:
     explicit inline BattleField() : aoBattleships() {
@@ -60,6 +70,14 @@ public:
 
     inline State getCell(int nY, int nX){
         return BF[nY][nX];
+    }
+
+    inline optional<BattleShip> operator[] (const Point& point){
+        if(mpoBF[point.y][point.x] == nullptr){
+            return std::nullopt;
+        }else{
+            return make_optional(*mpoBF[point.y][point.x]);
+        }
     }
 
 private:
