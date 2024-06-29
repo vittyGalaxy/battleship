@@ -5,10 +5,9 @@
 void BattleField::init(){
     for(int nRow = 0; nRow < N; nRow++){
         for(int nCol = 0; nCol < N; nCol++){
-            BF[nRow][nCol] = water;
+            mpoBF[nRow][nCol] = nullptr;
         }
     }
-    aoBattleships.clear();
 }
 
 /*---------------------------------------------------------------------------*/
